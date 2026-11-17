@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-11-17 15:39:08 UTC",
+  "s3_ransomware_vault": {
+    "bucket_name": "ontap-hybrid-vault-aac6e32c",
+    "worm_status": "GOVERNANCE",
+    "retention_days": 30,
+    "versioning": "Enabled",
+    "lifecycle_rules": 1,
+    "compliance_passed": true
+  },
+  "ontap_hybrid_finops": {
+    "cluster_name": "ontap-hybrid-fsx-01",
+    "svm": "svm_prod_hybrid",
+    "total_ssd_gb": 152.0,
+    "total_tiered_gb": 848.0,
+    "monthly_savings_usd": 86.5,
+    "annual_savings_usd": 1038.0,
+    "snapmirror_sla_ok": true,
+    "volumes": [
+      {
+        "name": "vol_app_prod",
+        "type": "RW",
+        "policy": "AUTO",
+        "ssd_gb": 140.0,
+        "tiered_gb": 360.0,
+        "monthly_savings_usd": 36.72
+      },
+      {
+        "name": "vol_app_dr_mirror",
+        "type": "DP",
+        "policy": "ALL",
+        "ssd_gb": 12.0,
+        "tiered_gb": 488.0,
+        "monthly_savings_usd": 49.78
+      }
+    ]
+  }
+}

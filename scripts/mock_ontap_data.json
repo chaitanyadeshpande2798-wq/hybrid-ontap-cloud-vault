@@ -1,0 +1,42 @@
+{
+  "cluster": {
+    "name": "ontap-hybrid-fsx-01",
+    "version": "NetApp Release 9.14.1P4",
+    "svm": "svm_prod_hybrid"
+  },
+  "volumes": [
+    {
+      "name": "vol_app_prod",
+      "type": "RW",
+      "tiering_policy": "AUTO",
+      "cooling_days": 31,
+      "allocated_gb": 500.0,
+      "used_performance_ssd_gb": 140.0,
+      "tiered_capacity_pool_gb": 360.0,
+      "snapshot_reserve_pct": 10,
+      "snapshot_used_gb": 38.5,
+      "dedupe_compression_savings_ratio": 1.65
+    },
+    {
+      "name": "vol_app_dr_mirror",
+      "type": "DP",
+      "tiering_policy": "ALL",
+      "cooling_days": 0,
+      "allocated_gb": 500.0,
+      "used_performance_ssd_gb": 12.0,
+      "tiered_capacity_pool_gb": 488.0,
+      "snapshot_reserve_pct": 5,
+      "snapshot_used_gb": 18.0,
+      "dedupe_compression_savings_ratio": 1.65
+    }
+  ],
+  "snapmirror_relationships": [
+    {
+      "source_path": "svm_prod_hybrid:vol_app_prod",
+      "destination_path": "svm_prod_hybrid:vol_app_dr_mirror",
+      "state": "snapmirrored",
+      "healthy": true,
+      "lag_time_seconds": 420
+    }
+  ]
+}
